@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="12530" started-at="2018-01-17T14:15:12Z" finished-at="2018-01-17T14:15:25Z">
+    <groups>
+    </groups>
+    <test name="Test1" duration-ms="12530" started-at="2018-01-17T14:15:12Z" finished-at="2018-01-17T14:15:25Z">
+      <class name="AndroidApp.base">
+        <test-method status="PASS" signature="startAppium()[pri:0, instance:AndroidApp.base@46d56d67]" name="startAppium" is-config="true" duration-ms="4436" started-at="2018-01-17T16:15:08Z" finished-at="2018-01-17T16:15:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startAppium -->
+      </class> <!-- AndroidApp.base -->
+      <class name="AndroidApp.Test1">
+        <test-method status="PASS" signature="test()[pri:0, instance:AndroidApp.Test1@d8355a8]" name="test" duration-ms="12498" started-at="2018-01-17T16:15:12Z" finished-at="2018-01-17T16:15:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+      </class> <!-- AndroidApp.Test1 -->
+    </test> <!-- Test1 -->
+  </suite> <!-- Suite -->
+</testng-results>
