@@ -6,7 +6,7 @@ import org.testng.Assert;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static framework.BasePage.driver;
+import static framework.BasePageAndroid.driver;
 
 
 public class Utils {
@@ -33,8 +33,12 @@ public class Utils {
 
     public static void clickOnElement(MobileElement clickOn){
             clickOn.click();
-
     }
+
+    public static void clickOnElementList(int i, List<MobileElement> clickOn){
+        clickOn.get(i).click();
+    }
+
     public static void checkTextOfListElement(int i, List<MobileElement> element, String expectedText){
         String elementText = element.get(i).getText();
         Assert.assertTrue(elementText.equals(expectedText), "true");

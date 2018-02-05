@@ -1,16 +1,12 @@
 package pagesAndroid;
 
-import framework.BasePage;
+import framework.BasePageAndroid;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.support.PageFactory;
 
-import java.net.MalformedURLException;
 import java.util.List;
 
-public class RegistrationPagesAndroid extends BasePage {
+public class RegistrationPagesAndroid extends BasePageAndroid {
 
     //titles of registration flows 2 and 3
     @AndroidFindBy(id="net.funmiles.app.mobile:id/title")

@@ -8,7 +8,7 @@ import java.net.MalformedURLException;
 
 import static framework.СapabilitiesAndroid.capatibilities;
 
-public class BasePage {
+public class BasePageAndroid {
 
     public static AndroidDriver driver;
 
@@ -20,7 +20,7 @@ public class BasePage {
         }
     }
 
-    public BasePage() {
+    public BasePageAndroid() {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 

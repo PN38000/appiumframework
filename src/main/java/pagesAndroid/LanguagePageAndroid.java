@@ -1,17 +1,12 @@
 package pagesAndroid;
 
-import framework.BasePage;
+import framework.BasePageAndroid;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.support.PageFactory;
 
-import java.net.MalformedURLException;
 import java.util.List;
 
-public class LanguagePageAndroid extends BasePage {
+public class LanguagePageAndroid extends BasePageAndroid {
 
 
     @AndroidFindBy(xpath="//*[@text='Let’s get started!']")

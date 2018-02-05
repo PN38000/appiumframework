@@ -1,16 +1,11 @@
 package pagesAndroid;
 
-import framework.BasePage;
+import framework.BasePageAndroid;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import java.net.MalformedURLException;
-
-public class LoginPageAndroid extends BasePage {
+public class LoginPageAndroid extends BasePageAndroid {
 
     @AndroidFindBy(xpath="//android.widget.FrameLayout[2]//android.widget.TextView")
     public MobileElement usernameTitle;

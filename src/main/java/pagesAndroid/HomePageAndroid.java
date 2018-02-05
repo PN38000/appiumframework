@@ -1,13 +1,13 @@
 package pagesAndroid;
 
-import framework.BasePage;
+import framework.BasePageAndroid;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.testng.Assert;
 
 import java.util.List;
 
-public class HomePageAndroid extends BasePage {
+public class HomePageAndroid extends BasePageAndroid {
 
     @AndroidFindBy(id="com.android.packageinstaller:id/permission_message")
     public MobileElement locationPermissionMessage;
