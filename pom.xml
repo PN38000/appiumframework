@@ -6,11 +6,10 @@
   <groupId>Framework</groupId>
   <artifactId>FunMiles</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Citrus Integration Test</name>
+  <name>Fun miles tests</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <citrus.version>2.7.2</citrus.version>
     <slf4j.version>1.7.25</slf4j.version>
     <testng.version>6.11</testng.version>
   </properties>
@@ -38,7 +37,7 @@
 
   <profiles>
     <profile>
-      <id>Androidapp</id>
+      <id>Tests</id>
       <build>
         <plugins>
           <plugin>
@@ -85,14 +84,12 @@
             <version>2.20.1</version>
             <configuration>
               <suiteXmlFiles>
-                <suiteXmlFile>androidAppTests.xml</suiteXmlFile>
+                <suiteXmlFile>testng.xml</suiteXmlFile>
               </suiteXmlFiles>
             </configuration>
           </plugin>
         </plugins>
       </build>
     </profile>
-
   </profiles>
-
 </project>

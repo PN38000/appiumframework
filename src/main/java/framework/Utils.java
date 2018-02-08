@@ -1,15 +1,16 @@
 package framework;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
 import org.testng.Assert;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static framework.BasePageAndroid.driver;
+public class Utils extends AppiumBaseClass {
 
-
-public class Utils {
+    static AppiumDriver driver = driver();
 
     public static void checkTextOfElement(MobileElement element, String expectedText){
         String elementText = element.getText();
@@ -35,7 +36,7 @@ public class Utils {
             clickOn.click();
     }
 
-    public static void clickOnElementList(int i, List<MobileElement> clickOn){
+    public static void clickOnElementOfList(int i, List<MobileElement> clickOn){
         clickOn.get(i).click();
     }
 
@@ -58,13 +59,13 @@ public class Utils {
         Assert.assertTrue(element.isDisplayed(), "true");
     }
 
-    public static void returnBackOpenApp(){
-        driver.pressKeyCode(AndroidKeyCode.BACK);
+    public void  returnBackOpenApp(){
+        ((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.BACK);
         driver.launchApp();
     }
 
     public static void returnBack(){
-        driver.pressKeyCode(AndroidKeyCode.BACK);
+        ((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.BACK);
     }
 
     public static void isSelected(MobileElement element){
