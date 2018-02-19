@@ -13,7 +13,7 @@ public class HomePageTests  extends BaseTestClass {
 
     @Test(priority = 1)
     public void loginToApp() throws InterruptedException {
-        Utils.selectElement(0,languagepage.language,languagepage.selectedMark);
+        Utils.selectElement(0,languagepage.language,languagepage.selectedMarkAndroid);
         Utils.clickOnElement(languagepage.nextButton);
         Utils.selectElement(2,islandpage.island,islandpage.selectedMark);
         Utils.clickOnElement(islandpage.nextButton);
@@ -34,7 +34,7 @@ public class HomePageTests  extends BaseTestClass {
 
     @Test(priority = 3)
     public void checkLocalization(){
-     //   Utils.returnBack();
+        Utils.returnBack();
         Utils.checkTextOfElement(homepage.myDigitalCardText,"My digital card");
         Utils.checkTextOfElement(homepage.transactionTitle, "Transaction history");
         Utils.checkTextOfElement(homepage.tansactionSubTitle,"Total transactions");
@@ -51,7 +51,7 @@ public class HomePageTests  extends BaseTestClass {
     @Test(priority = 5)
     public void checkName(){
         String fullname = user.getFname()+" "+user.getSufix()+" "+user.getLname();
-        Utils.checkTextOfElement(homepage.userFullName,fullname);
+        Utils.checkTextOfElement(homepage.userFullName, fullname);
     }
 
     @Test(priority = 6)

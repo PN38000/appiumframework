@@ -12,7 +12,7 @@ public class LoginTests extends BaseTestClass {
 
     @Test(priority = 1)
     public void goToLoginScreen(){
-        Utils.selectElement(0,languagepage.language,languagepage.selectedMark);
+        Utils.selectElement(0,languagepage.language,languagepage.selectedMarkAndroid);
         Utils.clickOnElementAndCheckText(languagepage.nextButton, islandpage.topText, "Please choose your country");
         Utils.selectElement(2,islandpage.island,islandpage.selectedMark);
         Utils.clickOnElementAndCheckText(islandpage.nextButton, selectionpage.topText, "What kind of member are you?");
@@ -52,7 +52,7 @@ public class LoginTests extends BaseTestClass {
 
     @Test(priority = 6)
     public void backToSelectionScreen(){
-     //   Utils.returnBack();
+        Utils.returnBack();
         Utils.elementDisplayed(loginpage.loginButton);
         Utils.clickOnElementAndCheckText(loginpage.registerLink, selectionpage.topText, "What kind of member are you?");
         Utils.clickOnElementAndCheckText(selectionpage.loginButton, loginpage.forgotLink, "Forgot your password?");

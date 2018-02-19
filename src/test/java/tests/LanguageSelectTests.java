@@ -39,14 +39,14 @@ public class LanguageSelectTests extends BaseTestClass{
 
     @Test(priority = 5)
     public void selectEsAndClickNext() {
-      //  Utils.returnBackOpenApp();
+        Utils.returnBackOpenApp();
         Utils.selectElement(2,languagepage.language,languagepage.selectedMarkAndroid);
         Utils.clickOnElementAndCheckText(languagepage.nextButton, islandpage.topText, "Seleccione su país");
     }
 
     @Test(priority = 6)
     public void selectEnAndClickNext() {
-       // Utils.returnBackOpenApp();
+        Utils.returnBackOpenApp();
         Utils.selectElement(0,languagepage.language,languagepage.selectedMarkAndroid);
         Utils.clickOnElementAndCheckText(languagepage.nextButton, islandpage.topText, "Please choose your country");
     }

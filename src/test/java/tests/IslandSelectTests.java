@@ -11,7 +11,7 @@ public class IslandSelectTests extends BaseTestClass {
 
     @Test(priority = 1)
     public void goToIslandScreen() {
-        Utils.selectElement(0,languagepage.language,languagepage.selectedMark);
+        Utils.selectElement(0,languagepage.language,languagepage.selectedMarkAndroid);
         Utils.clickOnElementAndCheckText(languagepage.nextButton, islandpage.topText, "Please choose your country");
 
     }

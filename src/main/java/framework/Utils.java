@@ -59,7 +59,7 @@ public class Utils extends AppiumBaseClass {
         Assert.assertTrue(element.isDisplayed(), "true");
     }
 
-    public void  returnBackOpenApp(){
+    public static void  returnBackOpenApp(){
         ((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.BACK);
         driver.launchApp();
     }

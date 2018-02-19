@@ -15,6 +15,7 @@ public class LoginPage {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
+//add all acesab id IOS
 
     @AndroidFindBy(xpath="//android.widget.FrameLayout[2]//android.widget.TextView")
     @iOSFindBy(accessibility = "usernameTitle")
