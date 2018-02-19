@@ -28,7 +28,7 @@ public class SelectionScreenTests extends BaseTestClass{
     @Test(priority = 3)
     public void openNewMemberPage() {
         Utils.clickOnElementAndCheckText(selectionpage.newMemberOption, registrationpages.topTest1,"Please let us know who you are");
-        Utils.returnBack();
+        Utils.returnBackAndroid();
     }
 
     @Test(priority = 4)
@@ -38,7 +38,7 @@ public class SelectionScreenTests extends BaseTestClass{
         Utils.elementDisplayed(selectionpage.cardUnregisteredOption);
         Utils.clickOnElement(selectionpage.cardUnregisteredOption);
         Utils.checkTextOfListElement(0, registrationpages.titlesFlows_2_3,"Let’s connect your Fun Miles card!");
-        Utils.returnBack();
+        Utils.returnBackAndroid();
     }
 
     @Test(priority = 5)
@@ -48,7 +48,7 @@ public class SelectionScreenTests extends BaseTestClass{
         Utils.elementDisplayed(selectionpage.cardUnregisteredOption);
         Utils.clickOnElement(selectionpage.cardRegisteredOption);
         Utils.checkTextOfListElement(0, registrationpages.titlesFlows_2_3,"Shall we transfer your data?");
-        Utils.returnBack();
+        Utils.returnBackAndroid();
     }
 
     @Test(priority = 6)

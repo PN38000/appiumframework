@@ -9,6 +9,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
+import static framework.AppiumController.OS.ANDROID;
+import static framework.AppiumController.OS.IOS;
+import static framework.AppiumController.executionOS;
+import static framework.Utils.returnBackAndroid;
+
 public class IslandPage {
 
     AppiumDriver driver;
@@ -49,5 +54,15 @@ public class IslandPage {
     @AndroidFindBy(id="net.funmiles.app.mobile:id/next")
     @iOSFindBy(className = "XCUIElementTypeButton")
     public MobileElement nextButton;
+
+    public void returnBackToLanguage(){
+        if(executionOS == ANDROID){
+            returnBackAndroid();
+            driver.launchApp();
+        }else if (executionOS == IOS){
+            backIconIos.click();
+        }
+
+    }
 
 }

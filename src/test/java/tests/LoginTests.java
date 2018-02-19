@@ -52,7 +52,7 @@ public class LoginTests extends BaseTestClass {
 
     @Test(priority = 6)
     public void backToSelectionScreen(){
-        Utils.returnBack();
+        Utils.returnBackAndroid();
         Utils.elementDisplayed(loginpage.loginButton);
         Utils.clickOnElementAndCheckText(loginpage.registerLink, selectionpage.topText, "What kind of member are you?");
         Utils.clickOnElementAndCheckText(selectionpage.loginButton, loginpage.forgotLink, "Forgot your password?");

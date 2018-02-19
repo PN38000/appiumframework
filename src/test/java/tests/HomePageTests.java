@@ -34,7 +34,7 @@ public class HomePageTests  extends BaseTestClass {
 
     @Test(priority = 3)
     public void checkLocalization(){
-        Utils.returnBack();
+        Utils.returnBackAndroid();
         Utils.checkTextOfElement(homepage.myDigitalCardText,"My digital card");
         Utils.checkTextOfElement(homepage.transactionTitle, "Transaction history");
         Utils.checkTextOfElement(homepage.tansactionSubTitle,"Total transactions");

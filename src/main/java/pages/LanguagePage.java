@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -23,11 +24,11 @@ public class LanguagePage {
     }
 
     @AndroidFindBy(xpath="//*[@text='Let’s get started!']")
-    @iOSFindBy(xpath="//XCUIElementTypeOther/XCUIElementTypeStaticText[1]")
+    @iOSFindBy(xpath="//*[@text='Let’s get started!']")
     public MobileElement topText1;
 
     @AndroidFindBy(xpath="//*[@text='Please choose your language']")
-    @iOSFindBy(xpath="//XCUIElementTypeOther/XCUIElementTypeStaticText[2]")
+    @iOSFindBy(xpath="//*[@text='Please choose your language']")
     public MobileElement topText2;
 
     @AndroidFindBy(xpath="//android.widget.RelativeLayout/android.widget.TextView")
@@ -44,14 +45,24 @@ public class LanguagePage {
     @iOSFindBy(className="XCUIElementTypeButton")  //isEnabled
     public MobileElement nextButton;
 
-    public void selectLanguageAndCheckIcon(int i) throws InterruptedException {
+    public void acceptAlertOnIOS() throws InterruptedException{
         if(executionOS == IOS){
             driver.switchTo().alert().accept();
             Thread.sleep(1000);
             driver.switchTo().alert().accept();
-
+            Thread.sleep(500);
         }
-        Utils.clickOnElementOfList(i,language);
+    }
+
+    public void selectLanguageAndCheckIcon(int i)  {
+        if(executionOS == IOS){
+            Utils.clickOnElementOfList(i,language);
+            Assert.assertTrue(selectMarkIos.isEnabled(),"true");
+
+        }else if(executionOS == ANDROID){
+            Utils.clickOnElementOfList(i,language);
+            Assert.assertTrue(selectedMarkAndroid.get(i).isSelected(),"true");
+        }
     }
 
 }

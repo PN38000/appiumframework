@@ -65,20 +65,4 @@ public class AppiumController {
             driver = null;
         }
     }
-
-    public static void main(String[] args) throws MalformedURLException {
-        File appDir = new File("src");
-        File app = new File(appDir, "ApiDemos-debug.apk");
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Demo3");
-        capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "net.funmiles.app.mobile");
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "net.funmiles.app.OnboardingActivity");
-        capabilities.setCapability("newCommandTimeout", 60);
-        AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-
-        //first test is to get device orientation and show it in console
-        ScreenOrientation orientation = driver.getOrientation();
-        System.out.println(orientation);
-    }
 }
