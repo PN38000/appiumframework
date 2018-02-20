@@ -11,8 +11,9 @@ import static models.UserBuilder.userWithTransactions;
 public class LoginTests extends BaseTestClass {
 
     @Test(priority = 1)
-    public void goToLoginScreen(){
-        Utils.selectElement(0,languagepage.language,languagepage.selectedMarkAndroid);
+    public void goToLoginScreen() throws InterruptedException {
+        languagepage.acceptAlertOnIOS();
+        languagepage.selectLanguageAndCheckIcon(0);
         Utils.clickOnElementAndCheckText(languagepage.nextButton, islandpage.topText, "Please choose your country");
         Utils.selectElement(2,islandpage.island,islandpage.selectedMark);
         Utils.clickOnElementAndCheckText(islandpage.nextButton, selectionpage.topText, "What kind of member are you?");
