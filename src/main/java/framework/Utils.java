@@ -17,7 +17,8 @@ public class Utils extends AppiumBaseClass {
         Assert.assertTrue(elementText.equals(expectedText), "true");
     }
 
-    public static void buttonIsInactive(MobileElement button){
+    public static void buttonIsInactive(MobileElement button) throws InterruptedException {
+        Thread.sleep(500);
         Assert.assertFalse(button.isEnabled(),"false");
     }
 

@@ -15,7 +15,7 @@ public class HomePageTests  extends BaseTestClass {
     public void loginToApp() throws InterruptedException {
         Utils.selectElement(0,languagepage.language,languagepage.selectedMarkAndroid);
         Utils.clickOnElement(languagepage.nextButton);
-        Utils.selectElement(2,islandpage.island,islandpage.selectedMark);
+        islandpage.selectIslandAndCheckIcon(2);
         Utils.clickOnElement(islandpage.nextButton);
         Utils.clickOnElement(selectionpage.loginButton);
         String username = user.getUsername();

@@ -1,11 +1,13 @@
 package pages;
 
+import framework.Utils;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -30,29 +32,20 @@ public class IslandPage {
     public MobileElement topText;
 
     @AndroidFindBy(xpath="//android.widget.LinearLayout/android.widget.ImageView[1]")
+    @iOSFindBy(accessibility = "islandIcon")
     public List<MobileElement> islandIcon;
-
-    @iOSFindBy(accessibility = "islandAruba")
-    public MobileElement islandIconAruba;
-    @iOSFindBy(accessibility = "islandBonaire")
-    public MobileElement islandIconBonaire;
-    @iOSFindBy(accessibility = "islandCuracao")
-    public MobileElement islandIconCuracao;
-    @iOSFindBy(accessibility = "islandStmaarten")
-    public MobileElement islandIconStMartin;
 
     @AndroidFindBy(xpath="//android.support.v7.widget.RecyclerView//android.widget.TextView")
     @iOSFindBy(xpath = "//XCUIElementTypeTable//XCUIElementTypeStaticText")
     public List<MobileElement> island;
 
     @AndroidFindBy(xpath="//android.widget.LinearLayout/android.widget.ImageView[2]")
+    @iOSFindBy(accessibility="selectedMark")
     public List<MobileElement> selectedMark;
 
-    @iOSFindBy(accessibility="checkMark")
-    public MobileElement selectMarkIos; //isEnabled
 
     @AndroidFindBy(id="net.funmiles.app.mobile:id/next")
-    @iOSFindBy(className = "XCUIElementTypeButton")
+    @iOSFindBy(accessibility = "nextButton")
     public MobileElement nextButton;
 
     public void returnBackToLanguage(){
@@ -62,7 +55,19 @@ public class IslandPage {
         }else if (executionOS == IOS){
             backIconIos.click();
         }
+    }
 
+    public void selectIslandAndCheckIcon(int i)  {
+        if(executionOS == IOS){
+            Utils.clickOnElementOfList(i, island);
+            Assert.assertTrue(selectedMark.get(0).isEnabled(),"true");
+            Assert.assertTrue(islandIcon.get(i).isEnabled(),"true");
+
+        }else if(executionOS == ANDROID){
+            Utils.clickOnElementOfList(i,island);
+            Assert.assertTrue(selectedMark.get(i).isSelected(),"true");
+            Assert.assertTrue(islandIcon.get(i).isDisplayed(),"true");
+        }
     }
 
 }

@@ -10,9 +10,9 @@ public class SelectionScreenTests extends BaseTestClass{
 
     @Test(priority = 1)
     public void goToSelectionScreen(){
-        Utils.selectElement(0,languagepage.language,languagepage.selectedMarkAndroid);
+        languagepage.selectLanguageAndCheckIcon(0);
         Utils.clickOnElementAndCheckText(languagepage.nextButton, islandpage.topText, "Please choose your country");
-        Utils.selectElement(2,islandpage.island,islandpage.selectedMark);
+        islandpage.selectIslandAndCheckIcon(2);
         Utils.clickOnElementAndCheckText(islandpage.nextButton, selectionpage.topText, "What kind of member are you?");
     }
 

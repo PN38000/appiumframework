@@ -15,7 +15,7 @@ public class LoginTests extends BaseTestClass {
         languagepage.acceptAlertOnIOS();
         languagepage.selectLanguageAndCheckIcon(0);
         Utils.clickOnElementAndCheckText(languagepage.nextButton, islandpage.topText, "Please choose your country");
-        Utils.selectElement(2,islandpage.island,islandpage.selectedMark);
+        islandpage.selectIslandAndCheckIcon(2);
         Utils.clickOnElementAndCheckText(islandpage.nextButton, selectionpage.topText, "What kind of member are you?");
         Utils.clickOnElement(selectionpage.loginButton);
     }
