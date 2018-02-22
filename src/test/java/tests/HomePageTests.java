@@ -55,7 +55,7 @@ public class HomePageTests  extends BaseTestClass {
     }
 
     @Test(priority = 6)
-    public void goToProfile(){
+    public void goToProfile() throws InterruptedException {
         Utils.clickOnElementAndCheckText(homepage.myDigitalCardText, profilepage.myCardTitle,"My card");
         Utils.isSelected(bottommenu.profileMenuIcon);
     }

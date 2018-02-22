@@ -6,6 +6,9 @@ import org.testng.annotations.Test;
 import pages.*;
 import framework.Utils;
 
+import static framework.AppiumController.OS.ANDROID;
+import static framework.AppiumController.OS.IOS;
+import static framework.AppiumController.executionOS;
 import static models.UserBuilder.userWithTransactions;
 
 public class LoginTests extends BaseTestClass {
@@ -30,7 +33,7 @@ public class LoginTests extends BaseTestClass {
     }
 
     @Test(priority = 3)
-    public void loginWitIncorrectPassword() throws InterruptedException {
+    public void loginWitIncorrectPassword() {
         String username = user.getUsername();
         String password = user.getPassword()+"123";
         loginpage.loginMethod(username,password);
@@ -38,22 +41,29 @@ public class LoginTests extends BaseTestClass {
     }
 
     @Test(priority = 4)
-    public void loginWithIncorrectUserName() throws InterruptedException {
+    public void loginWithIncorrectUserName() {
         String username = user.getUsername()+"123";
         String password = user.getPassword();
         loginpage.loginMethod(username,password);
-        //Utils.checkTextOfElement(loginpage.errorMessage,"Oops, Unknown combination, please try again.");
+        Utils.checkTextOfElement(loginpage.errorMessage,"Oops, Unknown combination, please try again.");
     }
 
     @Test(priority = 5)
     public void forgotPassLink() throws InterruptedException {
-        Thread.sleep(10000);
-        Utils.clickOnElementAndCheckText(loginpage.forgotLink,loginpage.forgotPageUrl, "https://www.funmiles.net/#/forgotpassword");
+        if(executionOS == ANDROID){
+           Utils.clickOnElementAndCheckText(loginpage.forgotLink,loginpage.forgotPageUrl, "https://www.funmiles.net/#/forgotpassword");
+        }else if(executionOS == IOS){
+            driver().hideKeyboard();
+            loginpage.forgotLink.isEnabled();
+        }
     }
 
     @Test(priority = 6)
-    public void backToSelectionScreen(){
-        Utils.returnBackAndroid();
+    public void backToSelectionScreen() throws InterruptedException {
+        if(executionOS == ANDROID){
+            Utils.returnBackAndroid();
+        }
+
         Utils.elementDisplayed(loginpage.loginButton);
         Utils.clickOnElementAndCheckText(loginpage.registerLink, selectionpage.topText, "What kind of member are you?");
         Utils.clickOnElementAndCheckText(selectionpage.loginButton, loginpage.forgotLink, "Forgot your password?");
@@ -64,8 +74,10 @@ public class LoginTests extends BaseTestClass {
         String username = user.getUsername();
         String password = user.getPassword();
         loginpage.loginMethod(username,password);
-        Thread.sleep(10000);
-        Utils.checkTextOfElement(homepage.locationPermissionMessage,"Allow Fun Miles to access this device's location?");
+        if(executionOS == ANDROID) {
+            Thread.sleep(10000);
+            Utils.checkTextOfElement(homepage.locationPermissionMessage, "Allow Fun Miles to access this device's location?");
+        }
     }
 
 

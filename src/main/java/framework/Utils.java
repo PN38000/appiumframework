@@ -27,9 +27,9 @@ public class Utils extends AppiumBaseClass {
         Assert.assertTrue(selectedMark.get(i).isSelected(),"true");
     }
 
-    public static void clickOnElementAndCheckText(MobileElement clickOn, MobileElement elementDisplayed, String someText){
+    public static void clickOnElementAndCheckText(MobileElement clickOn, MobileElement elementDisplayed, String someText) throws InterruptedException {
         clickOn.click();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        Thread.sleep(1000);
         Assert.assertTrue(elementDisplayed.getText().equals(someText), "true");
     }
 

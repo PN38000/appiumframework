@@ -41,7 +41,7 @@ public class LanguageSelectTests extends BaseTestClass{
     }
 
     @Test(priority = 4)
-    public void selectNlAndClickNext() {
+    public void selectNlAndClickNext() throws InterruptedException {
         languagepage.selectLanguageAndCheckIcon(1);
         Utils.clickOnElementAndCheckText(languagepage.nextButton, islandpage.topText, "Kies uw land");
     }

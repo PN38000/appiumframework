@@ -9,7 +9,7 @@ public class UserBuilder {
 
     public static User userWithTransactions() {
         User user = new User("transactions4","Mobile1234!","","Onno","van",
-                "Gijssel","","","","");
+                "Gijssel'","","","","");
         return user;
     }
 }

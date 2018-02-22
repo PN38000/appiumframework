@@ -6,10 +6,14 @@ import org.testng.annotations.Test;
 import pages.*;
 import framework.Utils;
 
+import static framework.AppiumController.OS.ANDROID;
+import static framework.AppiumController.executionOS;
+
 public class SelectionScreenTests extends BaseTestClass{
 
     @Test(priority = 1)
-    public void goToSelectionScreen(){
+    public void goToSelectionScreen() throws InterruptedException {
+        languagepage.acceptAlertOnIOS();
         languagepage.selectLanguageAndCheckIcon(0);
         Utils.clickOnElementAndCheckText(languagepage.nextButton, islandpage.topText, "Please choose your country");
         islandpage.selectIslandAndCheckIcon(2);
@@ -26,33 +30,33 @@ public class SelectionScreenTests extends BaseTestClass{
     }
 
     @Test(priority = 3)
-    public void openNewMemberPage() {
+    public void openNewMemberPage() throws InterruptedException {
         Utils.clickOnElementAndCheckText(selectionpage.newMemberOption, registrationpages.topTest1,"Please let us know who you are");
-        Utils.returnBackAndroid();
+        registrationpages.returnBackToSelectionPage();
     }
 
     @Test(priority = 4)
-    public void openCardUnregisteredPage() {
+    public void openCardUnregisteredPage() throws InterruptedException {
         Utils.clickOnElementAndCheckText(selectionpage.memberOption, selectionpage.cardUnregisteredOption,
                 "Card unregistered");
         Utils.elementDisplayed(selectionpage.cardUnregisteredOption);
         Utils.clickOnElement(selectionpage.cardUnregisteredOption);
         Utils.checkTextOfListElement(0, registrationpages.titlesFlows_2_3,"Let’s connect your Fun Miles card!");
-        Utils.returnBackAndroid();
+        registrationpages.returnBackToSelectionPage();
     }
 
     @Test(priority = 5)
-    public void openCardRegisteredPage() {
+    public void openCardRegisteredPage() throws InterruptedException {
         Utils.clickOnElementAndCheckText(selectionpage.memberOption, selectionpage.cardRegisteredOption,
                 "Card registered");
         Utils.elementDisplayed(selectionpage.cardUnregisteredOption);
         Utils.clickOnElement(selectionpage.cardRegisteredOption);
         Utils.checkTextOfListElement(0, registrationpages.titlesFlows_2_3,"Shall we transfer your data?");
-        Utils.returnBackAndroid();
+        registrationpages.returnBackToSelectionPage();
     }
 
     @Test(priority = 6)
-    public void openLoginPage() {
+    public void openLoginPage() throws InterruptedException {
         Utils.buttonIsActive(selectionpage.loginButton);
         Utils.clickOnElementAndCheckText(selectionpage.loginButton, loginpage.registerLink,
                 "No Fun Miles account? Please register your card.");
@@ -60,7 +64,9 @@ public class SelectionScreenTests extends BaseTestClass{
 
     @AfterTest
     public void resetApp(){
-        Utils.resetApp();
+        if(executionOS == ANDROID){
+            Utils.resetApp();
+        }
     }
 
 }

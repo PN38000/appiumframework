@@ -50,7 +50,7 @@ public class IslandSelectTests extends BaseTestClass {
     }
 
     @Test(priority = 6)
-    public void selectCurAndClickNext(){
+    public void selectCurAndClickNext() throws InterruptedException {
         islandpage.selectIslandAndCheckIcon(2);
         Utils.clickOnElementAndCheckText(islandpage.nextButton, selectionpage.topText,"What kind of member are you?");
     }
