@@ -6,17 +6,19 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.*;
 
+import static framework.AppiumController.OS.ANDROID;
+import static framework.AppiumController.executionOS;
 import static models.UserBuilder.userWithTransactions;
 
 public class HomePageTests  extends BaseTestClass {
 
-
     @Test(priority = 1)
     public void loginToApp() throws InterruptedException {
-        Utils.selectElement(0,languagepage.language,languagepage.selectedMarkAndroid);
-        Utils.clickOnElement(languagepage.nextButton);
+        languagepage.acceptAlertOnIOS();
+        languagepage.selectLanguageAndCheckIcon(0);
+        Utils.clickOnElementAndCheckText(languagepage.nextButton, islandpage.topText, "Please choose your country");
         islandpage.selectIslandAndCheckIcon(2);
-        Utils.clickOnElement(islandpage.nextButton);
+        Utils.clickOnElementAndCheckText(islandpage.nextButton, selectionpage.topText, "What kind of member are you?");
         Utils.clickOnElement(selectionpage.loginButton);
         String username = user.getUsername();
         String password = user.getPassword();
@@ -26,15 +28,19 @@ public class HomePageTests  extends BaseTestClass {
 
     @Test(priority = 2)
     public void allowLocationAccess(){
+        if(executionOS == ANDROID){
         Utils.checkTextOfElement(homepage.locationPermissionMessage,"Allow Fun Miles to access this device's location?");
         Utils.clickOnElement(homepage.allowLocationPermission);
         bottommenu.goToMoreMenuPage(bottommenu.settingsMenuIcon);
         Utils.checkTextOfElement(settingspage.locationSwitch, "ON");
+        }
     }
 
     @Test(priority = 3)
     public void checkLocalization(){
-        Utils.returnBackAndroid();
+        if(executionOS == ANDROID){
+            Utils.returnBackAndroid();
+        }
         Utils.checkTextOfElement(homepage.myDigitalCardText,"My digital card");
         Utils.checkTextOfElement(homepage.transactionTitle, "Transaction history");
         Utils.checkTextOfElement(homepage.tansactionSubTitle,"Total transactions");

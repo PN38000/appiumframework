@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 public class AppiumController {
 
-    public static OS executionOS = OS.ANDROID;
+    public static OS executionOS = OS.IOS;
 
     public enum OS {
         ANDROID,
