@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="FunMiles" />
+        <module name="generator-autotests" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="FunMiles" target="1.5" />
+      <module name="generator-autotests" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

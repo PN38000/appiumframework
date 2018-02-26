@@ -6,7 +6,7 @@
   <groupId>Framework</groupId>
   <artifactId>Generator</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Fun miles tests</name>
+  <name>Generator tests</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
