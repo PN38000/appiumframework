@@ -40,7 +40,7 @@ public class AppiumController {
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android" );
                 capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
                 capabilities.setCapability("newCommandTimeout", 60);
-                capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "net.funmiles.app.mobile");
+                capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "");
                 capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "net.funmiles.app.mobile.feature.onboarding.OnboardingActivity");
                 driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
                 driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
