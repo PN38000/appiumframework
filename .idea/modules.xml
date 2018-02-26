@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FunMiles.iml" filepath="$PROJECT_DIR$/FunMiles.iml" />
+      <module fileurl="file://$PROJECT_DIR$/generator-autotests.iml" filepath="$PROJECT_DIR$/generator-autotests.iml" />
     </modules>
   </component>
 </project>
